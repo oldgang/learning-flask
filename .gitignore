@@ -162,3 +162,7 @@ cython_debug/
 # Flask stuff
 instance/
 db.sqlite
+
+# Credentials
+db-secret.txt
+user-credentials.txt
