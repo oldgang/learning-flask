@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <div class="container mt-5">
+    <div class="jumbotron bg-light-blue">
+      <h3 class="display-8">Narzędzie pokazujące zajęte pasma częstotliwości na wybranych węzłach.</h3>
+      <p class="lead">Podaj numery węzłów oddzielone spacją, np. 1-54 1-106</p>
+      <form method="POST" action="{{ url_for('main.showGraphs') }}">
+        <p><input type="text" name="nodesTextInput" autocomplete="off"></p>
+        <p><input type="submit" value="Submit"></p>
+      </form>
+    </div>
+  </div> 
+  {% if plot_urls %}
+  <div class="container-fluid">
+    <div class="jumbotron bg-light-blue">
+      {% for plot_url in plot_urls %}
+      <img class="img-fluid rounded mx-auto d-block" src="data:image/png;base64,{{ plot_url }}" alt="Plot">
+      {% endfor %}
+    </div>
+  </div> 
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,48 @@
+  /* .container {
+    margin-top: 50px;
+  } */
+  
+  /* Styling for main headings */
+  h3 {
+    font-size: 30px;
+    color: #2196F3; /* Light blue color */
+  }
+  
+  /* Styling for links */
+  a {
+    color: #2196F3; /* Light blue color */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #1976D2; /* Darker shade on hover */
+  }
+
+  /* Custom CSS for light blue color theme and background color */
+  body {
+    background-color: #59a38a !important;
+  }
+
+  .bg-light-blue {
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .btn-primary {
+    background-color: #2196F3;
+    border-color: #2196F3;
+  }
+
+  .btn-primary:hover {
+    background-color: #1976D2;
+    border-color: #1976D2;
+  }
+
+  ul a {
+    color: #2196F3 !important;
+  }
+
+  #content {
+    align-items: normal;
+  }

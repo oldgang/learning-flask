@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-5">
+  <div class="jumbotron bg-light-blue">
+    <h3 class="display-8">Narzędzie obliczające zużycie transferu danych dla karty SIM</h3>
+    <p class="lead">Podaj adres IP CPE:</p>
+    <form method="POST" action="{{ url_for('main.calculateLteTransfer') }}">
+      <div class="form-group">
+        <input type="text" name="lteTextInput" class="form-control" autocomplete="off">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {{ text }}
+    {% if usage %}
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <p class="lead">Zużycie danych dla IP: {{ ip }}</p>
+        <p class="statistic">Transfer 24h: {{ usage[0] }}</p>
+        <p class="statistic">Transfer 7 dni: {{ usage[1] }}</p>
+        <p class="statistic">Transfer 30 dni: {{ usage[2] }}</p>
+        <p class="statistic">Transfer 365 dni: {{ usage[3] }}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="lead">Oferty abonamentowe:</p>
+        <p class="statistic">Orange: bez limitu - 20 zł</p>
+        <p class="statistic">Play: 500 GB - 20 zł </p>
+        <p class="statistic">Plus: 300 GB + 200 GB w nocy - 25 zł</p>
+        <p class="statistic">T-Mobile: bez limitu - 35 zł </p>
+      </div>
+    </div>
+      {% if stats %}
+      <div class="mt-4">
+        <p class="lead">Statystyki karty:</p>
+        {% for stat in stats %}
+          <p class="statistic">{{ stat }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+

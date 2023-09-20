@@ -1,10 +1,20 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
 
 {% block content %}
-<h1 class="title">
-  Flask Login Example
-</h1>
-<h2 class="subtitle">
-  Easy authentication and authorization in Flask.
-</h2>
+<div class="container mt-5">
+  <div class="jumbotron bg-light-blue text-center">
+    <h3>Narzędzia sieciowe</h3>
+    <ul class="list-group mt-4">
+      <li class="list-group-item"><a href="{{ url_for('main.graphs') }}">Wykresy zajętego pasma</a></li>
+      <li class="list-group-item"><a href="{{ url_for('main.lteTransfer') }}">Kalkulator transferu LTE</a></li>
+      <li class="list-group-item"><a href="https://energa-operator.pl/uslugi/awarie-i-wylaczenia/wylaczenia-biezace/ramka">Energa - mapa wyłączeń</a></li>
+    </ul>
+  </div>
+</div>
 {% endblock %}
