@@ -20,14 +20,14 @@ def driver_init():
     if platform.system() == "Linux":
             driver = webdriver.Chrome(service=Service(executable_path=r'/usr/bin/chromedriver'), options=options)
     else:
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="114.0.5735.90").install()), options=options)
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.implicitly_wait(5)
     return driver
 
 # SIGN IN
 def sign_in_wave(driver):
     # get password from local file
-    with open('password.txt', 'r') as f:
+    with open('instance/password.txt', 'r') as f:
         password = f.readline()
 
     try:

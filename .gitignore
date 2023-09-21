@@ -166,3 +166,5 @@ db.sqlite
 # Credentials
 db-secret.txt
 user-credentials.txt
+bot.txt
+password.txt

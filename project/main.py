@@ -1,6 +1,7 @@
 from flask import Blueprint, Flask, render_template, redirect, url_for, request, session, flash
 from flask_login import login_required, current_user
 from .lte import is_valid_ipv4, fetch_lte_usage, fetch_lte_stats
+from .node import get_plot_urls
 from . import db
 
 main = Blueprint('main', __name__)
@@ -15,6 +16,15 @@ def index():
 @login_required
 def graphs():
     return render_template('graphs.html')
+
+@main.route('/graphs/', methods=['POST'])
+def showGraphs():
+        nodes = request.form['nodesTextInput'].split(' ')
+        if nodes == ['']:
+                return render_template('graphs.html')
+        nodeFreqDictionary = get_plot_urls(nodes)
+        plot_urls = nodeFreqDictionary.values()
+        return render_template('graphs.html', plot_urls=plot_urls)
 
 @main.route('/lteTransfer')
 @login_required
