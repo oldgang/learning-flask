@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
-{% block body %}
+{% block head %}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block content %}
 <div class="container mt-5">
   <div class="jumbotron bg-light-blue">
     <h3 class="display-8">Narzędzie obliczające zużycie transferu danych dla karty SIM</h3>

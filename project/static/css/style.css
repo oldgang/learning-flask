@@ -46,3 +46,9 @@
   #content {
     align-items: normal;
   }
+
+  .lead,
+  .statistic {
+    color: #2196F3 !important;
+    font-weight: 400;
+  }

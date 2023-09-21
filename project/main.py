@@ -18,6 +18,7 @@ def graphs():
     return render_template('graphs.html')
 
 @main.route('/graphs/', methods=['POST'])
+@login_required
 def showGraphs():
         nodes = request.form['nodesTextInput'].split(' ')
         if nodes == ['']:
